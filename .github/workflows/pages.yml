@@ -1,0 +1,48 @@
+name: Publish client previews
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Pages
+        uses: actions/configure-pages@v5
+
+      - name: Prepare preview files
+        run: |
+          mkdir -p _site/mockups _site/content/images _site/content/current-homepage_files _site/fonts/Source_Serif_4
+          cp preview/index.html _site/index.html
+          cp mockups/vintage.html mockups/modern.html mockups/style.css _site/mockups/
+          cp 'content/images/logo.PNG' 'content/images/logo-cream.PNG' 'content/images/Cabinet Photo Sticker Removal.png' 'content/images/4.jpg' 'content/images/WhatsApp Image 2026-05-13 at 9.02.05 AM (3).jpeg' _site/content/images/
+          cp content/current-homepage_files/i04exa9ltbidveiv72bknd5ac4s3_8bOd.webp _site/content/current-homepage_files/
+          cp fonts/NotoSans-VariableFont_wdth,wght.ttf fonts/NotoSans-OFL.txt _site/fonts/
+          cp fonts/Source_Serif_4/SourceSerif4-VariableFont_opsz,wght.ttf fonts/Source_Serif_4/
+          cp fonts/Source_Serif_4/OFL.txt _site/fonts/Source_Serif_4/
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
