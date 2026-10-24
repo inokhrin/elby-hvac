@@ -1,0 +1,1183 @@
+:root {
+    --blue: #076ba4;
+    --navy: #153b50;
+    --gold: #f6bf25;
+    --cream: #f7f3e7;
+    --ink: #203b49;
+    --line: #c9c9b8;
+    --paper: #fffdf6;
+    --width: 1160px
+}
+
+* {
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 20px
+}
+
+body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font: 16px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif
+}
+
+a {
+    color: inherit;
+    text-underline-offset: 5px
+}
+
+a:hover {
+    text-decoration-thickness: 2px
+}
+
+a:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 5px
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto
+}
+
+figure {
+    margin: 0
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.12
+}
+
+h1 {
+    font-size: clamp(2.3rem, 4.2vw, 3.7rem);
+    letter-spacing: -.015em
+}
+
+h2 {
+    font-size: clamp(1.9rem, 3vw, 2.65rem);
+    letter-spacing: -.035em
+}
+
+h3 {
+    font-size: 1.45rem;
+    letter-spacing: -.025em
+}
+
+.wrap {
+    width: min(var(--width), calc(100% - 80px));
+    margin-inline: auto
+}
+
+.section {
+    padding-block: 80px
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    font-size: .72rem;
+    letter-spacing: .16em;
+    font-weight: 750;
+    margin-bottom: 20px
+}
+
+.skip {
+    position: absolute;
+    top: -80px;
+    z-index: 9;
+    background: white;
+    padding: 15px
+}
+
+.skip:focus {
+    top: 0
+}
+
+.concepts {
+    padding: 10px 24px;
+    background: #192b35;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    font-size: 12px
+}
+
+.concepts>a {
+    text-decoration: none;
+    font-weight: 700
+}
+
+.concepts nav {
+    display: flex;
+    gap: 8px
+}
+
+.concepts nav a {
+    text-decoration: none;
+    padding: 5px 12px;
+    border: 1px solid #73818a;
+    border-radius: 3px
+}
+
+.concepts a[aria-current] {
+    background: #fff;
+    color: #192b35
+}
+
+.utility {
+    font-size: 12px;
+    border-bottom: 1px solid var(--line);
+    padding: 9px 0
+}
+
+.utility .wrap {
+    display: flex;
+    justify-content: space-between
+}
+
+.utility a {
+    text-decoration: none
+}
+
+.site-header {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    min-height: 126px
+}
+
+.brand {
+    margin-right: auto
+}
+
+.brand img {
+    width: 174px
+}
+
+.site-header nav {
+    display: flex;
+    gap: 28px;
+    font-size: 14px;
+    font-weight: 600
+}
+
+.site-header nav a {
+    text-decoration: none
+}
+
+.header-call {
+    font-size: 14px;
+    text-decoration: none;
+    /* border-bottom: 2px solid var(--gold); */
+    padding: 7px 0
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+    padding-top: 35px;
+    padding-bottom: 60px
+}
+
+.intro {
+    font-size: 17px;
+    line-height: 1.75;
+    max-width: 480px;
+    margin-top: 25px
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-top: 30px;
+    flex-wrap: wrap
+}
+
+.button {
+    display: inline-flex;
+    gap: 28px;
+    align-items: center;
+    justify-content: center;
+    background: var(--blue);
+    color: white;
+    padding: 14px 24px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    min-height: 48px
+}
+
+.phone {
+    font-size: 15px;
+    font-weight: 650
+}
+
+.emergency {
+    font-size: 12px;
+    margin-top: 19px
+}
+
+.hero-photo img {
+    width: 100%;
+    height: 390px;
+    object-fit: cover
+}
+
+.hero-photo figcaption {
+    font-size: 11px;
+    padding-top: 10px;
+    letter-spacing: .05em
+}
+
+.credentials {
+    border-block: 1px solid var(--line);
+    font-size: 14px;
+    font-weight: 650
+}
+
+.credentials .wrap {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding-block: 19px
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 30px;
+    margin-bottom: 38px
+}
+
+.section-heading>p {
+    font-size: 14px;
+    max-width: 350px
+}
+
+.service-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px
+}
+
+.service-list article {
+    border-top: 2px solid var(--ink);
+    padding-top: 20px
+}
+
+.number {
+    font-size: 12px;
+    letter-spacing: .08em
+}
+
+.service-list h3 {
+    margin-top: 24px;
+    margin-bottom: 15px
+}
+
+.service-list p {
+    font-size: 14px;
+    margin-bottom: 22px
+}
+
+.service-list a {
+    font-size: 13px;
+    font-weight: 700
+}
+
+.offers {
+    background: var(--gold);
+    padding-block: 28px
+}
+
+.offers .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px
+}
+
+.offers .eyebrow {
+    margin: 0;
+    max-width: 145px
+}
+
+.offers strong {
+    font-size: 32px;
+    line-height: 1.2;
+    display: block;
+    letter-spacing: -.04em
+}
+
+.offers span {
+    font-size: 12px
+}
+
+.offers a {
+    font-size: 13px;
+    font-weight: 700
+}
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px
+}
+
+.about>div>p+p {
+    margin-top: 15px
+}
+
+.reviews {
+    background: var(--paper);
+    border-block: 1px solid var(--line)
+}
+
+.quotes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 40px
+}
+
+blockquote {
+    margin: 0;
+    font: 20px/1.6 Georgia, serif
+}
+
+.quotes figcaption {
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 22px
+}
+
+.contact {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px
+}
+
+.contact h2+p {
+    margin-top: 20px;
+    margin-bottom: 25px;
+    font-size: 14px
+}
+
+.contact address {
+    font-style: normal;
+    font-size: 14px;
+    padding-top: 20px;
+    min-width: 340px
+}
+
+.contact address>a {
+    display: block;
+    overflow-wrap: anywhere
+}
+
+.contact-phone {
+    font-size: 27px;
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 8px
+}
+
+.contact address p {
+    margin-top: 22px;
+    margin-bottom: 10px
+}
+
+.contact address strong {
+    font-size: 12px
+}
+
+footer {
+    background: var(--navy);
+    color: var(--cream);
+    padding-block: 32px;
+    font-size: 14px
+}
+
+footer .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px
+}
+
+footer span {
+    font-size: 12px;
+    opacity: .8
+}
+
+footer a {
+    font-size: 12px;
+    margin-left: 25px
+}
+
+/* 01 — sign-inspired typography, double rules, framed work photography */
+.vintage h1,
+.vintage h2,
+.vintage h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700
+}
+
+.vintage .site-header {
+    /* border-bottom: 4px double var(--ink) */
+}
+
+.vintage .hero {
+    padding-top: 48px
+}
+
+.vintage .hero-photo {
+    padding: 10px;
+    background: #fffdf6;
+    border: 1px solid var(--line);
+    box-shadow: 7px 7px 0 #dfdcca
+}
+
+.vintage .hero-photo img {
+    height: 480px
+}
+
+.vintage .credentials {
+    background: var(--blue);
+    color: white;
+    border-block: 4px double var(--cream)
+}
+
+.vintage .button {
+    background: var(--gold);
+    color: var(--navy);
+    border: 1px solid var(--navy);
+    box-shadow: 3px 3px 0 var(--navy)
+}
+
+:is(.vintage, .modern) .services {
+    padding-block: clamp(45px, 5vw, 64px)
+}
+
+:is(.vintage, .modern) .section-heading {
+    margin-bottom: 28px
+}
+
+:is(.vintage, .modern) .services-intro {
+    margin-top: 14px;
+    font-size: 14px
+}
+
+.vintage .service-list article {
+    border: 0;
+    padding-top: 0
+}
+
+:is(.vintage, .modern) .service-list img {
+    width: 100%;
+    aspect-ratio: 8 / 5;
+    object-fit: cover
+}
+
+.vintage .service-list img {
+    border: 6px solid var(--paper);
+    outline: 1px solid var(--line)
+}
+
+:is(.vintage, .modern) .service-list h3 {
+    margin-top: 22px
+}
+
+:is(.vintage, .modern) .service-list p {
+    margin-bottom: 0
+}
+
+:is(.vintage, .modern) .services-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 44px;
+    flex-shrink: 0;
+    font-size: 14px;
+    font-weight: 700
+}
+
+/* 02 — large editorial title, asymmetric photographic composition, print-ad detailing */
+.editorial {
+    --cream: #f1ead8;
+    --paper: #f7f2e7;
+    --ink: #153c51;
+    --line: #b5b09e;
+    --width: 1120px
+}
+
+.editorial .utility {
+    background: var(--blue);
+    color: #fff;
+    border: 0
+}
+
+.editorial .site-header {
+    min-height: 112px;
+    border-bottom: 1px solid var(--ink)
+}
+
+.editorial .brand img {
+    width: 150px
+}
+
+.editorial .header-call {
+    border: 1px solid var(--ink);
+    padding: 9px 15px
+}
+
+.editorial .hero {
+    display: block;
+    padding-top: 22px;
+    padding-bottom: 50px
+}
+
+.editorial-top {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 13px;
+    margin-bottom: 28px
+}
+
+.editorial-top .eyebrow {
+    margin: 0
+}
+
+.issue {
+    font: italic 14px Georgia, serif
+}
+
+.editorial .hero-copy {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    column-gap: 60px;
+    align-items: center
+}
+
+.editorial .hero-copy>.eyebrow {
+    grid-column: 1/-1;
+    margin-bottom: 10px
+}
+
+.editorial h1 {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(2.8rem, 5.5vw, 5rem);
+    line-height: 1.02;
+    letter-spacing: -.055em
+}
+
+.editorial h2,
+.editorial h3 {
+    font-family: Georgia, serif;
+    font-weight: 400
+}
+
+.editorial .hero-copy .intro {
+    font-size: 15px;
+    margin: 0;
+    padding-left: 25px;
+    border-left: 1px solid var(--ink)
+}
+
+.editorial-bottom {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    gap: 60px;
+    margin-top: 36px;
+    align-items: center
+}
+
+.editorial .hero-photo img {
+    height: 310px
+}
+
+.editorial .hero-photo figcaption {
+    text-transform: uppercase;
+    font-size: 10px
+}
+
+.editorial-note {
+    display: flex;
+    flex-direction: column;
+    align-items: start
+}
+
+.seal {
+    border: 2px solid var(--blue);
+    border-radius: 50%;
+    width: 115px;
+    height: 115px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font: italic 20px/1.1 Georgia, serif;
+    transform: rotate(9deg);
+    margin-bottom: 22px
+}
+
+.editorial-note>p {
+    font: 20px/1.5 Georgia, serif
+}
+
+.editorial .actions {
+    margin-top: 25px;
+    gap: 15px
+}
+
+.editorial .phone {
+    font-size: 13px
+}
+
+.editorial .button {
+    border-radius: 0;
+    background: var(--ink)
+}
+
+.editorial .credentials {
+    border-block: 1px solid var(--ink)
+}
+
+.editorial .offers {
+    border-block: 1px solid var(--ink)
+}
+
+.editorial .service-list article {
+    border-top-width: 1px
+}
+
+.editorial .number {
+    font: italic 18px Georgia, serif
+}
+
+.editorial blockquote {
+    font-size: 22px
+}
+
+.editorial .contact {
+    border-top: 1px solid var(--ink)
+}
+
+/* 03 — crisp white space, blue feature panel, minimal ornament */
+.modern {
+    --cream: #fff;
+    --paper: #f2f6f8;
+    --ink: #193a50;
+    --line: #d9e2e7;
+    --width: 1160px
+}
+
+.modern .utility {
+    background: #f2f6f8
+}
+
+.modern .site-header {
+    min-height: 118px
+}
+
+.modern .brand img {
+    width: 155px
+}
+
+.modern .header-call {
+    border: 0;
+    border-radius: 5px;
+    background: #edf4f8;
+    color: #075d8c;
+    padding: 10px 16px
+}
+
+.modern .hero {
+    background: var(--blue);
+    color: white;
+    width: 100%;
+    padding: 0;
+    gap: 0;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch
+}
+
+.modern .hero-copy {
+    padding: 60px 42px 55px max(40px, calc((100vw - 1160px)/2))
+}
+
+.modern h1 {
+    font-size: clamp(2.3rem, 3.7vw, 3.4rem);
+    font-weight: 750
+}
+
+.modern .intro {
+    font-size: 16px;
+    color: #fff;
+    opacity: .93
+}
+
+.modern .hero-photo {
+    position: relative;
+    min-height: 460px
+}
+
+.modern .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0
+}
+
+.modern .hero-photo figcaption {
+    position: absolute;
+    bottom: 16px;
+    left: 22px;
+    background: #193a50;
+    color: white;
+    padding: 5px 12px
+}
+
+.modern .button {
+    background: var(--gold);
+    color: #193a50;
+    border-radius: 4px
+}
+
+.modern .credentials {
+    background: #f2f6f8
+}
+
+.modern .service-list article {
+    border: 1px solid var(--line);
+    padding: 26px;
+    border-radius: 5px
+}
+
+.modern .service-list img {
+    border-radius: 3px
+}
+
+.modern .offers {
+    background: #edf4f8;
+    border-left: 0
+}
+
+.modern .offers strong {
+    color: #076ba4
+}
+
+.modern .about {
+    padding-top: 90px;
+    padding-bottom: 90px
+}
+
+.modern .reviews {
+    border: 0
+}
+
+.modern blockquote {
+    font: 17px/1.75 system-ui, sans-serif
+}
+
+.modern .contact-phone {
+    color: var(--blue)
+}
+
+@media(min-width:1600px) {
+    .modern .hero-copy {
+        padding-right: 70px
+    }
+}
+
+@media(max-width:1000px) {
+    .wrap {
+        width: calc(100% - 48px)
+    }
+
+    .site-header {
+        gap: 20px
+    }
+
+    .site-header nav {
+        gap: 18px
+    }
+
+    .header-call {
+        display: none
+    }
+
+    .hero {
+        gap: 30px
+    }
+
+    .hero-photo img {
+        height: 355px
+    }
+
+    .concepts {
+        align-items: start
+    }
+
+    .concepts nav {
+        flex-wrap: wrap;
+        justify-content: end
+    }
+
+    .credentials .wrap {
+        font-size: 14px
+    }
+
+    .service-list {
+        gap: 20px
+    }
+
+    .editorial .hero-copy,
+    .editorial-bottom {
+        gap: 30px
+    }
+
+    .modern .hero-copy {
+        padding: 40px 25px
+    }
+
+    .modern .hero-photo {
+        min-height: 490px
+    }
+
+    .offers .wrap {
+        gap: 20px
+    }
+
+    .contact {
+        gap: 30px
+    }
+
+    .contact address {
+        min-width: 290px
+    }
+}
+
+@media(max-width:650px) {
+    :is(.vintage, .modern) .services-link {
+        margin-top: 10px
+    }
+
+    html {
+        scroll-behavior: auto
+    }
+
+    .wrap {
+        width: calc(100% - 36px)
+    }
+
+    .concepts {
+        display: block;
+        padding: 12px 18px
+    }
+
+    .concepts nav {
+        justify-content: start;
+        margin-top: 9px;
+        gap: 5px
+    }
+
+    .concepts nav a {
+        font-size: 10px;
+        padding: 5px 7px
+    }
+
+    .utility {
+        font-size: 10px
+    }
+
+    .utility .wrap {
+        gap: 15px
+    }
+
+    .utility span {
+        max-width: 235px
+    }
+
+    .utility a {
+        white-space: nowrap
+    }
+
+    .site-header {
+        min-height: 125px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        padding-block: 15px
+    }
+
+    .brand {
+        margin: 0
+    }
+
+    .brand img,
+    .modern .brand img,
+    .editorial .brand img {
+        width: 135px
+    }
+
+    .site-header nav {
+        justify-content: center;
+        gap: 25px;
+        font-size: 12px;
+        width: 100%
+    }
+
+    .hero,
+    .vintage .hero {
+        grid-template-columns: 1fr;
+        padding-top: 30px;
+        padding-bottom: 35px;
+        gap: 30px
+    }
+
+    h1 {
+        font-size: 2.65rem
+    }
+
+    .intro {
+        font-size: 15px;
+        margin-top: 20px
+    }
+
+    .eyebrow {
+        font-size: 10px;
+        margin-bottom: 15px
+    }
+
+    .hero-photo img,
+    .vintage .hero-photo img {
+        height: 250px
+    }
+
+    .actions {
+        gap: 20px
+    }
+
+    .credentials .wrap {
+        flex-wrap: wrap;
+        gap: 8px 18px;
+        justify-content: center;
+        text-align: center;
+        padding-block: 16px;
+        font-size: 10px
+    }
+
+    .section {
+        padding-block: 45px
+    }
+
+    .section-heading {
+        display: block;
+        margin-bottom: 25px
+    }
+
+    .section-heading>p {
+        margin-top: 20px
+    }
+
+    .service-list,
+    .quotes {
+        grid-template-columns: 1fr;
+        gap: 28px
+    }
+
+    .service-list h3 {
+        margin-top: 12px
+    }
+
+    .service-list p {
+        margin-bottom: 12px
+    }
+
+    .offers .wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px
+    }
+
+    .offers .eyebrow {
+        grid-column: 1/-1;
+        max-width: none
+    }
+
+    .offers a {
+        grid-column: 1/-1
+    }
+
+    .offers strong {
+        font-size: 28px
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+        gap: 25px
+    }
+
+    .quotes {
+        margin-top: 30px
+    }
+
+    .quotes figure+figure {
+        padding-top: 24px;
+        border-top: 1px solid var(--line)
+    }
+
+    blockquote {
+        font-size: 20px
+    }
+
+    .contact {
+        display: block
+    }
+
+    .contact address {
+        padding-top: 35px;
+        min-width: 0;
+        font-size: 12px
+    }
+
+    .contact-phone {
+        font-size: 25px
+    }
+
+    footer .wrap {
+        display: block
+    }
+
+    footer a {
+        display: inline-block;
+        margin: 15px 22px 0 0
+    }
+
+    .editorial-top {
+        gap: 20px
+    }
+
+    .issue {
+        font-size: 11px
+    }
+
+    .editorial .hero-copy {
+        display: block
+    }
+
+    .editorial h1 {
+        font-size: 3.1rem
+    }
+
+    .editorial .hero-copy .intro {
+        margin-top: 24px;
+        padding-left: 15px
+    }
+
+    .editorial-bottom {
+        grid-template-columns: 1fr;
+        gap: 25px
+    }
+
+    .editorial .hero-photo img {
+        height: 230px
+    }
+
+    .editorial-note {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        gap: 15px;
+        align-items: center
+    }
+
+    .seal {
+        width: 90px;
+        height: 90px;
+        font-size: 17px;
+        margin: 0
+    }
+
+    .editorial-note>p {
+        font-size: 17px
+    }
+
+    .editorial .actions {
+        grid-column: 1/-1;
+        margin-top: 8px
+    }
+
+    .modern .hero {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        gap: 0
+    }
+
+    .modern .hero-copy {
+        padding: 35px 24px
+    }
+
+    .modern .hero-photo {
+        min-height: 270px
+    }
+
+    .modern h1 {
+        font-size: 2.55rem
+    }
+
+    .modern .about {
+        padding-block: 45px
+    }
+
+    .modern .hero-photo figcaption {
+        font-size: 10px
+    }
+
+    .modern .service-list article {
+        padding: 22px
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    html {
+        scroll-behavior: auto
+    }
+
+    .seal {
+        transform: none
+    }
+}
+
+.editorial .seal {
+    font-size: 17px
+}
+
+@media(max-width:650px) {
+    .editorial .seal {
+        font-size: 14px
+    }
+}
