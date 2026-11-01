@@ -32,6 +32,7 @@ jobs:
           mkdir -p _site/mockups _site/content/images _site/content/current-homepage_files _site/fonts/Source_Serif_4
           cp preview/index.html _site/index.html
           cp mockups/vintage.html mockups/modern.html mockups/style.css _site/mockups/
+          cp mockups/vintage-pipe.html mockups/vintage-pipe.css mockups/vintage-pipe.js _site/mockups/
           cp 'content/images/logo.PNG' 'content/images/logo-cream.PNG' 'content/images/Cabinet Photo Sticker Removal.png' 'content/images/4.jpg' 'content/images/WhatsApp Image 2026-05-13 at 9.02.05 AM (3).jpeg' _site/content/images/
           cp content/current-homepage_files/i04exa9ltbidveiv72bknd5ac4s3_8bOd.webp _site/content/current-homepage_files/
           cp fonts/NotoSans-VariableFont_wdth,wght.ttf fonts/NotoSans-OFL.txt _site/fonts/

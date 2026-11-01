@@ -1,0 +1,77 @@
+/* This experiment shares the original vintage design; only its pipe gutter changes. */
+.pipe-version .wrap {
+    width: min(var(--width), calc(100% - 96px));
+}
+
+.pipe-stage {
+    position: relative;
+    isolation: isolate;
+}
+
+.scroll-pipe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: block;
+    overflow: visible;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.scroll-pipe[data-ready] {
+    visibility: visible;
+}
+
+.pipe-clearance {
+    stroke: var(--cream);
+    stroke-width: 10;
+}
+
+.pipe-blue {
+    stroke: var(--blue);
+    stroke-width: 6;
+}
+
+.pipe-highlight {
+    stroke: #78a9bc;
+    stroke-width: 1.5;
+}
+
+/* Keep the tees joined to the trunk without a clearance stroke cutting across it. */
+.pipe-branch .pipe-clearance {
+    stroke: none;
+}
+
+.pipe-fitting {
+    fill: var(--gold);
+    stroke: var(--navy);
+    stroke-width: 1;
+}
+
+.pipe-version .brand {
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 1000px) {
+    .pipe-version .wrap {
+        width: calc(100% - 80px);
+    }
+}
+
+@media (max-width: 650px) {
+    .pipe-version .wrap {
+        width: calc(100% - 36px);
+    }
+
+    .scroll-pipe {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
