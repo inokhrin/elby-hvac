@@ -6,6 +6,12 @@
     const hero = stage.querySelector('[data-pipe-ports]');
     const heroPorts = hero ? [...hero.querySelectorAll('.hero-pipe-port')]
         .map(element => ({ element, distance: 0 })) : [];
+    const ghostPanels = [...stage.querySelectorAll('[data-pipe-ghost]')]
+        .map(element => ({
+            element, start: 0, end: 0,
+            ports: [...element.querySelectorAll('.banner-pipe-port')]
+                .map(element => ({ element, distance: 0 }))
+        }));
     const destinations = [...stage.querySelectorAll('main .eyebrow')]
         .filter(target => !target.closest('.offers'));
     const startFitting = svg.querySelector('.pipe-start');
@@ -66,11 +72,13 @@
         for (const port of heroPorts) {
             port.element.classList.toggle('is-reached', revealed >= port.distance);
         }
-        if (hero?.hasAttribute('data-pipe-ghost')) {
-            const [entry, exit] = heroPorts;
+        for (const panel of ghostPanels) {
             const progress = Math.max(0, Math.min(1,
-                (revealed - entry.distance) / (exit.distance - entry.distance)));
-            hero.style.setProperty('--pipe-hero-reveal', `${progress * 100}%`);
+                (revealed - panel.start) / (panel.end - panel.start)));
+            panel.element.style.setProperty('--pipe-ghost-reveal', `${progress * 100}%`);
+            for (const port of panel.ports) {
+                port.element.classList.toggle('is-reached', revealed >= port.distance);
+            }
         }
         endFitting.style.opacity = traveled === travelLength ? '1' : '0';
     }
@@ -144,6 +152,23 @@
                 port.distance = inletLength + edge - bounds.top - startY - radius;
             }
             hero.setAttribute('data-pipe-ready', '');
+        }
+        for (const panel of ghostPanels) {
+            const box = panel.element.getBoundingClientRect();
+            const styles = getComputedStyle(panel.element);
+            const top = box.top + parseFloat(styles.borderTopWidth);
+            const bottom = box.bottom - parseFloat(styles.borderBottomWidth);
+            panel.start = inletLength + top - bounds.top - startY - radius;
+            panel.end = inletLength + bottom - bounds.top - startY - radius;
+            panel.element.style.setProperty('--pipe-ghost-left',
+                `${rail - box.left + bounds.left - parseFloat(styles.borderLeftWidth)}px`);
+            for (const port of panel.ports) {
+                const edge = port.element.dataset.pipeEdge === 'top' ? box.top : box.bottom;
+                port.distance = inletLength + edge - bounds.top - startY - radius;
+                // Absolute positioning starts inside the border; fittings sit on the outer edge.
+                port.element.style.top = `${edge - top}px`;
+            }
+            panel.element.setAttribute('data-pipe-ready', '');
         }
         const stageTop = bounds.top + window.scrollY;
         const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight - 1);

@@ -54,6 +54,55 @@
     z-index: 2;
 }
 
+.banner-pipe-port {
+    display: none;
+    position: absolute;
+    left: var(--pipe-ghost-left);
+    width: 14px;
+    height: 8px;
+    transform: translate(-50%, -50%);
+    background: var(--gold);
+    border: 1px solid var(--navy);
+    border-radius: 1px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Coloured bands cover the solid pipe and show its faint continuation beneath. */
+@media (min-width: 651px) {
+    .pipe-version [data-pipe-ghost] {
+        position: relative;
+        z-index: 2;
+    }
+
+    .pipe-version [data-pipe-ghost][data-pipe-ready]::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: var(--pipe-ghost-left);
+        width: 6px;
+        height: var(--pipe-ghost-reveal, 0%);
+        transform: translateX(-50%);
+        background: var(--pipe-ghost-color, #fff);
+        opacity: .18;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .pipe-version [data-pipe-ghost] > .wrap {
+        position: relative;
+        z-index: 1;
+    }
+
+    .pipe-version [data-pipe-ghost][data-pipe-ready] > .banner-pipe-port.is-reached {
+        display: block;
+    }
+}
+
+.vintage.pipe-version .offers[data-pipe-ghost] {
+    --pipe-ghost-color: var(--navy);
+}
+
 .pipe-version .about {
     grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
     grid-template-rows: auto 1fr;
