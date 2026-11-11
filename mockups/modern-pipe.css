@@ -6,6 +6,23 @@
     z-index: 2;
 }
 
+/* Opt-in experiment: a faint continuation of the pipe beneath the blue banner. */
+@media (min-width: 651px) {
+    .hero[data-pipe-ready][data-pipe-ghost]::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: var(--pipe-port-left);
+        width: 6px;
+        height: var(--pipe-hero-reveal, 0%);
+        transform: translateX(-50%);
+        background: #fff;
+        opacity: .18;
+        pointer-events: none;
+        z-index: 0;
+    }
+}
+
 .hero-pipe-port {
     display: none;
     position: absolute;
@@ -16,6 +33,7 @@
     background: var(--gold);
     border-radius: 2px;
     pointer-events: none;
+    z-index: 2;
 }
 
 .hero-pipe-port--top {
@@ -33,7 +51,13 @@
 }
 
 .modern.pipe-version .hero-copy {
+    position: relative;
+    z-index: 1;
     padding-left: max(48px, calc((100vw - var(--width)) / 2));
+}
+
+.modern.pipe-version .hero-photo {
+    z-index: 1;
 }
 
 .modern.pipe-version .service-list article {

@@ -66,6 +66,12 @@
         for (const port of heroPorts) {
             port.element.classList.toggle('is-reached', revealed >= port.distance);
         }
+        if (hero?.hasAttribute('data-pipe-ghost')) {
+            const [entry, exit] = heroPorts;
+            const progress = Math.max(0, Math.min(1,
+                (revealed - entry.distance) / (exit.distance - entry.distance)));
+            hero.style.setProperty('--pipe-hero-reveal', `${progress * 100}%`);
+        }
         endFitting.style.opacity = traveled === travelLength ? '1' : '0';
     }
 
