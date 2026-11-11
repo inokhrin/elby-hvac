@@ -3,6 +3,9 @@
     const svg = stage.querySelector('.scroll-pipe');
     const paths = [...svg.querySelectorAll('.pipe-run path')];
     const logo = stage.querySelector('.brand img');
+    const hero = stage.querySelector('[data-pipe-ports]');
+    const heroPorts = hero ? [...hero.querySelectorAll('.hero-pipe-port')]
+        .map(element => ({ element, distance: 0 })) : [];
     const destinations = [...stage.querySelectorAll('main .eyebrow')]
         .filter(target => !target.closest('.offers'));
     const startFitting = svg.querySelector('.pipe-start');
@@ -44,6 +47,8 @@
                 }
                 previous = next;
             }
+            // Keep the modern starting stub short even when the first section is already in view.
+            if (hero && window.scrollY <= 0) traveled = initialLength;
         }
         let revealed = traveled;
         for (const branch of branches) {
@@ -58,6 +63,9 @@
             branch.fitting.style.opacity = visible === branch.length ? '1' : '0';
         }
         for (const path of paths) path.style.strokeDashoffset = Math.max(0, length - revealed);
+        for (const port of heroPorts) {
+            port.element.classList.toggle('is-reached', revealed >= port.distance);
+        }
         endFitting.style.opacity = traveled === travelLength ? '1' : '0';
     }
 
@@ -121,7 +129,16 @@
         endFitting.setAttribute('y', endY - 6.5);
 
         // Leave a short connected stub visible before the visitor starts scrolling.
-        initialLength = Math.min(length, startX - rail + 34);
+        initialLength = Math.min(length, hero ? 12 : startX - rail + 34);
+        if (hero) {
+            const panel = hero.getBoundingClientRect();
+            hero.style.setProperty('--pipe-port-left', `${rail - panel.left + bounds.left}px`);
+            for (const port of heroPorts) {
+                const edge = port.element.classList.contains('hero-pipe-port--bottom') ? panel.bottom : panel.top;
+                port.distance = inletLength + edge - bounds.top - startY - radius;
+            }
+            hero.setAttribute('data-pipe-ready', '');
+        }
         const stageTop = bounds.top + window.scrollY;
         const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight - 1);
         checkpoints = [];

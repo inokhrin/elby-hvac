@@ -1,0 +1,57 @@
+/* Keep the full-width hero in front of the pipe; credentials leave it visible again. */
+.modern.pipe-version .hero {
+    width: 100%;
+    margin-inline: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-pipe-port {
+    display: none;
+    position: absolute;
+    left: var(--pipe-port-left);
+    width: 14px;
+    height: 8px;
+    transform: translateX(-50%);
+    background: var(--gold);
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+.hero-pipe-port--top {
+    top: -4px;
+}
+
+.hero-pipe-port--bottom {
+    bottom: -4px;
+}
+
+@media (min-width: 651px) {
+    .hero[data-pipe-ready] .hero-pipe-port.is-reached {
+        display: block;
+    }
+}
+
+.modern.pipe-version .hero-copy {
+    padding-left: max(48px, calc((100vw - var(--width)) / 2));
+}
+
+.modern.pipe-version .service-list article {
+    padding: 8px 8px 24px;
+}
+
+.modern.pipe-version .service-list :is(h3, p) {
+    margin-inline: 16px;
+}
+
+@media (max-width: 1000px) {
+    .modern.pipe-version .hero-copy {
+        padding-left: 40px;
+    }
+}
+
+@media (max-width: 650px) {
+    .modern.pipe-version .hero-copy {
+        padding-left: 24px;
+    }
+}
