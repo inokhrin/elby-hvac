@@ -54,9 +54,55 @@
     z-index: 2;
 }
 
+.pipe-version .about {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "heading photo"
+        "copy photo";
+    gap: 28px 60px;
+    align-items: start;
+}
+
+.pipe-version .about-heading {
+    grid-area: heading;
+}
+
+.pipe-version .about-copy {
+    grid-area: copy;
+}
+
+.pipe-version .about-owner-card {
+    grid-area: photo;
+}
+
+.pipe-version .about-owner {
+    grid-area: photo;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center 75%;
+}
+
+@media (min-width: 1001px) {
+    .vintage.pipe-version .hero {
+        grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+        gap: 32px;
+    }
+
+    .vintage.pipe-version .hero-photo img {
+        height: 560px;
+    }
+}
+
 @media (max-width: 1000px) {
     .pipe-version .wrap {
         width: calc(100% - 80px);
+    }
+
+    .pipe-version .about {
+        column-gap: 32px;
     }
 }
 
@@ -67,6 +113,20 @@
 
     .scroll-pipe {
         display: none;
+    }
+
+    .vintage.pipe-version .hero-photo img {
+        height: clamp(250px, 75vw, 360px);
+    }
+
+    .pipe-version .about {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto;
+        grid-template-areas:
+            "heading"
+            "photo"
+            "copy";
+        gap: 24px;
     }
 }
 
